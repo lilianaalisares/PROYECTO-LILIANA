@@ -1,3 +1,4 @@
+#se creará el siguiente programa que permita llevar un registro de peliculas
 import os
 def mostrar_menu():
     print("\nMenu de opciones:")

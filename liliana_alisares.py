@@ -35,7 +35,7 @@ def eliminar_catalogo(nombre_catalogo):
             print("operacion cancelada.")
 
 def main():
-    nombre_catalogo= input("ingrese el nombre del catalogo de peliculas:")
+    nombre_catalogo= input("Por favor, ingresa un nombre para el catalogo de peliculas:")
     if not os.path.exists(nombre_catalogo):
         with open(nombre_catalogo, "w") as archivo:
             print(f"catalogo '{nombre_catalogo}' creado.")
@@ -53,7 +53,7 @@ def main():
         elif opcion == "3":
             eliminar_catalogo(nombre_catalogo)
         elif opcion == "4":
-            print("Usted ha salido del programa, gracias por participar.")
+            print("Usted ha salido del programa, gracias por participar, ¡vuelva pronto!.")
             break
         else:
             print("opcion invalida. intente nuevamente")

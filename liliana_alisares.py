@@ -1,4 +1,4 @@
-#se creará el siguiente programa que permita llevar un registro de peliculas
+# se creará el siguiente programa que permita llevar un registro de peliculas
 import os
 def mostrar_menu():
     print("\nMenu de opciones:")
@@ -9,20 +9,20 @@ def mostrar_menu():
 def agregar_pelicula(nombre_catalogo):
     nombre_pelicula= input("ingresa el nombre de la pelicula: ")
     with open(nombre_catalogo, "a") as archivo:
-        archivo.wrte(nombre_pelicula + "\n")
-    print("Pelicula agregada correctamente.")
+        archivo.write(nombre_pelicula + "\n")
+    print(f"Pelicula '{nombre_pelicula}' 3 metros sobre el cieloagregada correctamente.")
 
 def listar_peliculas(nombre_catalogo):
-    if os.path.exists(nombre_catalogo):
+    try:
         with open(nombre_catalogo, "r") as archivo:
             peliculas= archivo.readlines()
             if peliculas:
-                print("\nPeliculas en el catalogo:")
-                for pelicula in peliculas:
-                    print("-" + pelicula.strip())
+                print("\n--- Peliculas en el catalogo ---")
+                for i, pelicula in enumerate(peliculas):
+                    print(f"{i+1}. {pelicula.strip()}")
             else:
                 print("el catalogo esta vacio.")
-    else:
+    except FileNotFoundError:
         print("el catalogo no existe.")
 
 def eliminar_catalogo(nombre_catalogo):
@@ -30,7 +30,7 @@ def eliminar_catalogo(nombre_catalogo):
     if confirmacion.lower() == "s":
         if os.path.exists(nombre_catalogo):
             os.remove(nombre_catalogo)
-            print("catalogo eliminado correctamente.")
+            print("Catalogo eliminado correctamente.")
         else:
             print("operacion cancelada.")
 
@@ -53,7 +53,7 @@ def main():
         elif opcion == "3":
             eliminar_catalogo(nombre_catalogo)
         elif opcion == "4":
-            print("salir del programa.")
+            print("Usted ha salido del programa, gracias por participar.")
             break
         else:
             print("opcion invalida. intente nuevamente")
